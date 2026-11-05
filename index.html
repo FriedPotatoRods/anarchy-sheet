@@ -1,0 +1,177 @@
+<!DOCTYPE html>
+<html lang="en"><head><meta charset="utf-8">
+<link rel="icon" href="data:image/svg+xml,%3Csvg xmlns=%27http://www.w3.org/2000/svg%27 viewBox=%270 0 100 100%27%3E%3Ctext y=%27.9em%27 font-size=%2790%27%3E%F0%9F%94%A5%3C/text%3E%3C/svg%3E">
+<meta name="viewport" content="width=device-width, initial-scale=1, viewport-fit=cover">
+<title>Shadowrun: Anarchy Character Sheet</title>
+<style>
+:root{--bg:#e9e6dc;--card:#fbfaf6;--ink:#1d1d1b;--mut:#6a665a;--ac:#2f6b3a;--ac2:#b89500;--line:#bdb7a5;--hd:#2b2b28;--hdt:#f4f1e6;--fld:#fff;color-scheme:light;box-sizing:border-box;padding-top:env(safe-area-inset-top,0px);padding-bottom:env(safe-area-inset-bottom,0px)}
+@media(prefers-color-scheme:dark){:root:not([data-theme="light"]){--bg:#121410;--card:#1d201a;--ink:#ece8da;--mut:#9d9886;--ac:#6fbf7d;--ac2:#e0be2f;--line:#3b4034;--hd:#0c0d0a;--hdt:#ece8da;--fld:#14160f;color-scheme:dark}}
+:root[data-theme="dark"]{--bg:#121410;--card:#1d201a;--ink:#ece8da;--mut:#9d9886;--ac:#6fbf7d;--ac2:#e0be2f;--line:#3b4034;--hd:#0c0d0a;--hdt:#ece8da;--fld:#14160f;color-scheme:dark}
+html{scroll-padding-top:env(safe-area-inset-top,0px)}
+body{margin:0;background:var(--bg) center/cover fixed;color:var(--ink);font:14px/1.4 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif}
+.w{max-width:1040px;margin:0 auto;padding:10px}
+header{display:flex;flex-wrap:wrap;gap:8px;align-items:center;justify-content:space-between;margin-bottom:8px}
+h1{margin:0;font:800 26px/1 Impact,"Arial Narrow",sans-serif;letter-spacing:1px;text-transform:uppercase;color:var(--ac)}
+.btn{background:var(--hd);color:var(--hdt);border:0;border-radius:6px;padding:7px 12px;font:inherit;cursor:pointer}
+.btn.on{background:var(--ac);color:#fff}
+.sec{background:color-mix(in srgb,var(--card) calc(var(--ca,100)*1%),transparent);border:1px solid var(--line);border-radius:8px;margin-bottom:10px;overflow:hidden}
+.sec>h2{margin:0;background:var(--hd);color:var(--hdt);font:600 14px/1.2 system-ui,-apple-system,"Segoe UI",Roboto,sans-serif;letter-spacing:.3px;padding:7px 10px;display:flex;justify-content:space-between;gap:8px}
+.sec>h2 span{font:12px system-ui;letter-spacing:0;text-transform:none;color:var(--ac2)}
+.b{padding:10px}
+input,select,textarea{font:inherit;color:var(--ink);background:var(--fld);border:1px solid var(--line);border-radius:5px;padding:5px 7px;width:100%;box-sizing:border-box;min-width:0}
+textarea{resize:vertical}
+input[type=checkbox]{width:18px;height:18px;padding:0;accent-color:var(--ac)}
+label.l{display:block;font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);margin:0 0 2px}
+.g{display:grid;gap:8px}
+.g2{grid-template-columns:repeat(auto-fit,minmax(260px,1fr))}
+.g3{grid-template-columns:repeat(auto-fit,minmax(200px,1fr))}
+.g6{grid-template-columns:repeat(auto-fit,minmax(110px,1fr))}
+.attr{text-align:center}.attr input{text-align:center;font:800 26px Impact,sans-serif;padding:2px}
+.sk{display:grid;grid-template-columns:2fr .9fr .6fr .6fr .6fr 1.6fr 30px;gap:4px;align-items:center;margin-bottom:4px}
+.sk.h{font-size:10px;text-transform:uppercase;color:var(--mut)}
+.pool{text-align:center;font:700 18px Impact,sans-serif;color:var(--ac)}
+.amp{border:1px solid var(--line);border-radius:8px;padding:7px;display:grid;gap:4px;background:var(--bg)}
+.amp .r{display:grid;grid-template-columns:1.6fr 1fr 1fr;gap:6px}
+.wp{display:grid;grid-template-columns:2fr .7fr .6fr .6fr .6fr 1.6fr;gap:4px;margin-bottom:4px}
+.row{display:flex;gap:4px;align-items:center;margin:3px 0}.row small{color:var(--mut);margin-left:6px;min-width:22px}
+.arm{display:flex;flex-wrap:wrap;gap:4px}
+.tabs{display:flex;gap:6px}
+.pt{display:flex;gap:10px;flex-wrap:wrap;align-items:center}
+.mod{font-weight:700;color:var(--ac2)}
+#portrait{width:100%;aspect-ratio:3/4;object-fit:cover;border:1px dashed var(--line);border-radius:8px;background:var(--fld)}
+[hidden]{display:none!important}
+.lore{display:flex;flex-wrap:wrap;gap:14px}.pp{flex:0 1 340px;min-width:240px;width:100%}.pp img{width:100%;aspect-ratio:3/4;object-fit:cover;border:1px dashed var(--line);border-radius:8px;background:var(--fld);display:block}.pf{flex:1 1 280px}.fh{display:flex;gap:4px;align-items:center}.lbl{font-size:11px;text-transform:uppercase;letter-spacing:.5px;color:var(--mut);border:0;background:transparent;padding:0 0 2px;flex:1}.lbl2{background:transparent;border:0;color:inherit;font:inherit;letter-spacing:inherit;text-transform:inherit;flex:1;padding:0}.x{padding:0 8px;line-height:1.3;font-size:14px}
+.sk .x{padding:2px 0;width:100%}.sk2{display:grid;grid-template-columns:auto 1fr auto;gap:8px;align-items:center;margin:0 0 6px 12px;padding-left:8px;border-left:3px solid var(--ac)}
+.tabs{flex-wrap:wrap}.tb{font-size:15px;font-weight:600;padding:10px 18px;border:2px solid var(--ac);background:transparent;color:var(--ink)}.tb span{font-size:18px;margin-right:4px}.tb.on{background:var(--ac);color:var(--hd)}
+input[type=color]{height:34px;padding:2px;cursor:pointer}input[type=range]{padding:0;accent-color:var(--ac)}
+.mb{display:flex;align-items:center;gap:8px;margin:5px 0}.mb small{color:var(--mut);font-weight:600;min-width:22px}.sg{display:flex;gap:5px}
+.seg{width:54px;height:24px;padding:0;border:2px solid var(--c,var(--ink));background:transparent;transform:skewX(-24deg);cursor:pointer;border-radius:2px}.seg.on{background:var(--c,var(--ink))}
+.armbar{display:flex;gap:4px;width:100%;margin-top:4px}.armbar .seg{flex:1;width:auto;height:30px}
+#t_phys{--c:#c0392b;width:fit-content}#t_stun{--c:#c98a00;width:fit-content}#t_arm{--c:var(--ac);width:100%}
+[id^="t_"][id$="phys"]{--c:#c0392b;width:fit-content}[id^="t_"][id$="stun"]{--c:#c98a00;width:fit-content}[id^="t_"][id$="arm"]{--c:var(--ac);width:100%}
+.cm{display:flex;flex-wrap:wrap;gap:14px;align-items:flex-start}.cmA{flex:1 1 240px;min-width:200px}.cmD{width:1px;background:var(--line);align-self:stretch;margin:0 4px}.cmP{display:flex;gap:12px;margin-left:auto}.cmP>div{display:flex;flex-direction:column;align-items:flex-start}.hd{display:flex;gap:8px;align-items:center;margin-bottom:4px}.clr{padding:5px 10px;font-size:12px}
+@media print{header .tabs,.btn,.nop{display:none!important}body{background:#fff}#p1,#p2{display:block!important}#p2{break-before:page}}
+</style></head><body><div class="w">
+<header><h1>Shadowrun: Anarchy</h1>
+<div class="tabs"><button class="btn tb on" id="t1"><span>📜</span> Character Sheet</button><button class="btn tb" id="t2"><span>📖</span> Lore &amp; Details</button></div><div class="tabs"><button class="btn" id="t3">🎨 Theme</button><button class="btn" id="t4">💾 Backups</button><button class="btn" onclick="window.print()">🖨 Print</button><button class="btn" id="rs">Reset</button></div></header>
+<div id="p1"></div><div id="p2" hidden></div><div id="p3" hidden></div><div id="p4" hidden></div>
+<p class="nop" style="color:var(--mut);font-size:12px">Everything autosaves in this browser. Rules reference: Shadowrun: Anarchy core book.</p>
+</div>
+<script>
+const KEY='anarchy-sheet-v2';let S={};try{S=JSON.parse(localStorage.getItem(KEY)||'{}')}catch(e){}
+const save=()=>{try{localStorage.setItem(KEY,JSON.stringify(S))}catch(e){}};
+const D={ess:6,ampMax:10,pN:10,sN:10,aN:0};
+const val=k=>k in S?S[k]:(k in D?D[k]:'');
+const num=k=>parseFloat(val(k))||0;
+const esc=s=>String(s).replace(/&/g,'&amp;').replace(/"/g,'&quot;').replace(/</g,'&lt;');
+const I=(k,ph='',t='text')=>`<input type="${t}" data-k="${k}" placeholder="${ph}" value="${esc(val(k))}">`;
+const T=(k,r=3,ph='')=>`<textarea data-k="${k}" rows="${r}" placeholder="${ph}">${esc(val(k))}</textarea>`;
+const F=(l,h)=>`<div><label class="l">${l}</label>${h}</div>`;
+const CB=k=>`<input type="checkbox" data-k="${k}" ${val(k)?'checked':''}>`;
+const sel=(k,opts)=>`<select data-k="${k}">${opts.map(o=>`<option ${val(k)===o?'selected':''}>${o}</option>`).join('')}</select>`;
+const AT=['—','STR','AGI','WIL','LOG','CHA'];
+const SK=['Athletics','Close Combat','Projectile Weapons','Firearms','Heavy Weapons','Vehicle Weapons','Stealth','Piloting (Ground)','Piloting (Other)','Escape Artist','Conjuring','Sorcery','Astral Combat','Survival','Biotech','Hacking','Electronics','Engineering','Tasking','Tracking','Con','Intimidation','Negotiation','Disguise'];
+let h='';
+h+=`<datalist id="sk">${SK.map(s=>`<option>${s}</option>`).join('')}</datalist>`;
+h+=`<div class="sec"><h2>Identity</h2><div class="b g" style="grid-template-columns:minmax(120px,170px) 1fr"><div><img id="portrait" alt="Portrait"><input type="file" id="pf" accept="image/*" class="nop" style="margin-top:4px;font-size:11px"></div><div class="g">
+<div class="g g3">${F('Name',I('name'))}${F('Real / Birth name',I('alias'))}${F('Metatype / Archetype',I('meta'))}</div>
+<div class="g g3">${F('Game level',I('level','Street Runner / Prime Runner'))}${F('Total Karma',I('kTot','0','number'))}${F('Karma balance',I('kBal','0','number'))}</div>
+<div class="pt"><label>${CB('emerged')} Emerged</label><label>${CB('awk')} Awakened</label></div>
+${F('Short description',T('desc',2))}</div></div></div>`;
+h+=`<div class="sec"><h2>Attributes</h2><div class="b g g6">${[['a_str','Strength'],['a_agi','Agility'],['a_wil','Willpower'],['a_log','Logic'],['a_cha','Charisma']].map(([k,l])=>`<div class="attr">${I(k,'','number')}<label class="l">${l}</label></div>`).join('')}
+<div class="attr">${I('edge','','number')}<label class="l">Edge</label></div>
+<div class="attr">${I('ess','','number')}<label class="l">Essence</label></div>
+<div class="attr">${I('plot','0','number')}<label class="l">Plot Points</label></div></div>
+<div class="b" style="padding-top:0"><label class="l">Essence effects (automatic)</label><div id="essFx" class="mod"></div></div></div>`;
+h+=`<div class="sec"><h2>Dispositions</h2><div class="b g g2">${[0,1,2,3,4].map(i=>I('dis'+i,'Disposition sentence')).join('')}</div></div>`;
+h+=`<div class="sec"><h2>Cues</h2><div class="b g g2">${[0,1,2,3,4,5].map(i=>I('cue'+i,'Cue: a quote or statement for Narrations')).join('')}</div></div>`;
+h+=`<div class="sec"><h2>Skills <span>Pool = Attribute + Rating + Bonus dice</span></h2><div class="b"><div class="sk h"><div>Skill</div><div>Attr</div><div>Rating</div><div>Bonus</div><div>Pool</div><div>Notes</div><div></div></div>
+${Array.from({length:12},(_,i)=>`<div class="sk"><input list="sk" data-k="s${i}n" value="${esc(val('s'+i+'n'))}" placeholder="Skill">${sel('s'+i+'a',AT)}${I('s'+i+'r','','number')}${I('s'+i+'b','','number')}<div class="pool" id="pool${i}">–</div>${I('s'+i+'x')}<button type="button" class="btn x nop" data-sx="${i}" title="Specialization">${val('s'+i+'o')?'▾':'▸'}</button></div><div class="sk2" id="sx${i}" ${val('s'+i+'o')?'':'hidden'}><span class="l" style="margin:0">Specialization</span>${I('s'+i+'sp','Focus (e.g. Thrown weapons)')}<label style="white-space:nowrap">${CB('s'+i+'c')} +2 dice</label></div>`).join('')}
+<label class="l" style="margin-top:8px">Knowledge skills (no rating)</label><div class="g g3">${[0,1,2,3,4,5].map(i=>I('kn'+i,'Knowledge')).join('')}</div>
+<p style="font-size:12px;color:var(--mut);margin:6px 0 0">Max skill at creation: 5 (6 Prime Runner). One Specialization (+2 dice) costs 1 skill point. Magic skills (Conjuring, Sorcery, Astral Combat) are Willpower; Close Combat is Agility (Willpower vs. spirits).</p></div></div>`;
+h+=`<div class="sec"><h2>Shadow Amps <span id="ampTot"></span></h2><div class="b"><div style="max-width:150px;margin-bottom:8px">${F('Amp points to spend',I('ampMax','','number'))}</div><div class="g g2">${Array.from({length:9},(_,i)=>`<div class="amp">${I('am'+i+'n','Amp name')}<div class="r">${F('Type',sel('am'+i+'t',['','Spell','Adept Power','Telesma','Cyberware','Bioware','Cyberdeck','Program','Magic','Other']))}${F('Cost',I('am'+i+'c','','number'))}${F('Essence loss',I('am'+i+'e','','number'))}</div>${T('am'+i+'d',2,'Effect')}</div>`).join('')}</div></div></div>`;
+h+=`<div class="sec"><h2>Qualities <span>2 positive, 1 negative</span></h2><div class="b g g3">${[0,1,2].map(i=>`<div class="amp"><label class="l">${i<2?'Positive':'Negative'}</label>${I('q'+i+'n','Quality')}${T('q'+i+'e',3,'Effect')}</div>`).join('')}</div></div>`;
+h+=`<div class="sec"><h2>Weapons <span>6 slots</span></h2><div class="b"><div class="wp"><b class="l">Weapon</b><b class="l">Damage</b><b class="l">Close</b><b class="l">Near</b><b class="l">Far</b><b class="l">Notes</b></div>
+<div class="wp"><div>Unarmed</div><div id="unarm">–</div>${['OK','—','—'].map(x=>`<div>${x}</div>`).join('')}<div style="color:var(--mut);font-size:12px">(STR/2, round up) S</div></div>
+${Array.from({length:6},(_,i)=>`<div class="wp">${I('w'+i+'n','Weapon')}${I('w'+i+'d','6P')}${I('w'+i+'c','OK')}${I('w'+i+'r','−2')}${I('w'+i+'f','—')}${I('w'+i+'x','Notes / effects')}</div>`).join('')}</div></div>`;
+h+=`<div class="sec"><h2>Armor &amp; Condition Monitor <span id="wmod"></span></h2><div class="b cm"><div class="cmA"><label class="l">Armor</label>${I('armName')}<div style="display:flex;gap:6px;align-items:center;margin:6px 0"><label class="l" style="margin:0">Dots</label><div style="width:70px">${I('aN','','number')}</div><button type="button" class="btn nop clr" data-clr="arm">Clear</button></div><div class="arm" id="t_arm"></div></div>
+<div class="cmD"></div><div class="cmP"><div><label class="l">Physical <small id="pBook"></small></label><div class="hd"><div style="width:70px">${I('pN','','number')}</div><button type="button" class="btn nop clr" data-clr="phys">Clear</button></div><div id="t_phys"></div></div>
+<div><label class="l">Stun <small id="sBook"></small></label><div class="hd"><div style="width:70px">${I('sN','','number')}</div><button type="button" class="btn nop clr" data-clr="stun">Clear</button></div><div id="t_stun"></div></div></div></div>
+<div class="b" style="padding-top:0">${F('Damage notes (damage reduction, special armor)',I('dmgNote'))}<p style="font-size:12px;color:var(--mut);margin:6px 0 0">Damage hits armor first, then the monitor. Each full row of 3 = −1/−2/−3/−4 to all dice (Physical and Stun modifiers add). Full track = Staggered; more Stun = Knocked Out; more Physical = Edge + Edge test or die.</p></div></div>`;
+h+=`<div class="sec"><h2>Gear &amp; Contacts</h2><div class="b g g2">${F('Gear (no set stats; narrate it)',T('gear',6))}${F('Contacts',T('contacts',6,'Name – who they are, how they help'))}</div></div>`;
+h+=`<div id="secSpirit" hidden></div><div id="secDrones" hidden></div>`;
+h+=`<div class="sec nop"><div class="b pt"><b>Optional sections:</b><label>${CB('useSpirit')} Spirit summons</label><label>${CB('useDrones')} Drones</label></div></div>`;
+document.getElementById('p1').innerHTML=h;
+function tracksOld(){[['phys','pN'],['stun','sN'],['arm','aN']].forEach(([t,nk])=>{const n=Math.max(0,Math.min(40,num(nk)|0));let x='';for(let i=0;i<n;i++){if(t!=='arm'&&i%3===0)x+=(i?'</div>':'')+'<div class="row">';x+=`<input type="checkbox" data-k="${t}${i}" ${S[t+i]?'checked':''}>`;if(t!=='arm'&&(i%3===2||i===n-1))x+=`<small>−${Math.min((i/3|0)+1,4)}</small>`}document.getElementById('t_'+t).innerHTML=x+(t!=='arm'&&n?'</div>':'')})}
+function rows(t,nk){const n=num(nk)|0;let r=0;for(let a=0;a<n;a+=3){let f=true;for(let j=a;j<Math.min(a+3,n);j++)if(!S[t+j])f=false;if(f)r++;else break}return r}
+function calc(){essFx();compCalc();const A={STR:num('a_str'),AGI:num('a_agi'),WIL:num('a_wil'),LOG:num('a_log'),CHA:num('a_cha'),'—':0};
+for(let i=0;i<12;i++){const e=document.getElementById('pool'+i);e.textContent=val('s'+i+'n')?A[val('s'+i+'a')||'—']+num('s'+i+'r')+num('s'+i+'b')+(val('s'+i+'c')?2:0):'–'}
+let c=0;for(let i=0;i<9;i++)c+=num('am'+i+'c');const at=document.getElementById('ampTot');at.textContent=c+' / '+num('ampMax')+' points';
+document.getElementById('unarm').textContent=Math.ceil(A.STR/2)+'S';
+document.getElementById('pBook').textContent='(book: '+(Math.ceil(A.STR/2)+8)+')';document.getElementById('sBook').textContent='(book: '+(Math.ceil(A.WIL/2)+8)+')';
+const p=rows('phys','pN'),s=rows('stun','sN'),pn=num('pN')|0,sn=num('sN')|0;
+let m='Wound mod: −'+(Math.min(p,4)+Math.min(s,4));if(pn&&p*3>=pn)m+=' · PHYSICAL STAGGERED';if(sn&&s*3>=sn)m+=' · STUN STAGGERED';document.getElementById('wmod').textContent=m}
+document.addEventListener('input',e=>{const k=e.target.dataset&&e.target.dataset.k;if(!k)return;S[k]=e.target.type==='checkbox'?e.target.checked:e.target.value;save();if(/[psa]N$/.test(k))tracks();calc()});
+const pi=document.getElementById('portrait');function showP(){pi.src=S.portrait||'data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400"><rect width="300" height="400" fill="none"/><text x="150" y="205" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="16">Portrait</text></svg>')}
+document.getElementById('pf').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas'),w=300,hh=400;c.width=w;c.height=hh;const x=c.getContext('2d'),sc=Math.max(w/im.width,hh/im.height);x.drawImage(im,(w-im.width*sc)/2,(hh-im.height*sc)/2,im.width*sc,im.height*sc);S.portrait=c.toDataURL('image/jpeg',.8);save();showP()};im.src=r.result};r.readAsDataURL(f)};
+const t1=document.getElementById('t1'),t2=document.getElementById('t2'),p1=document.getElementById('p1'),p2=document.getElementById('p2');
+t1.onclick=()=>{p1.hidden=false;p2.hidden=true;t1.classList.add('on');t2.classList.remove('on')};t2.onclick=()=>{p1.hidden=true;p2.hidden=false;t2.classList.add('on');t1.classList.remove('on')};
+let armed=false;const rs=document.getElementById('rs');rs.onclick=()=>{if(!armed){armed=true;rs.textContent='Click again to erase all';setTimeout(()=>{armed=false;rs.textContent='Reset'},3000);return}try{localStorage.removeItem(KEY)}catch(e){}location.reload()};
+const DB=[['bg','Background & origins'],['pers','Personality, mannerisms, habits'],['allies','Allies & enemies'],['secret','Secrets & fears'],['goal','Goals (short & long term)']],DF=[['age','Age'],['ht','Height'],['wt','Weight'],['hair','Hair'],['eyes','Eyes']],LBL={};
+DB.concat(DF).forEach(x=>LBL[x[0]]=x[1]);
+const lab=id=>('LL_'+id) in S?S['LL_'+id]:(LBL[id]||'');
+const PH='data:image/svg+xml,'+encodeURIComponent('<svg xmlns="http://www.w3.org/2000/svg" width="300" height="400"><text x="150" y="205" text-anchor="middle" fill="#888" font-family="sans-serif" font-size="16">Upload a portrait</text></svg>');
+function renderLore(){
+const bx=S.lb||DB.map(x=>x[0]),fl=S.lf||DF.map(x=>x[0]);
+lp0.innerHTML=`<div class="sec"><h2>Personal Data</h2><div class="b lore"><div class="pp"><img id="lpi" alt="Character portrait"><div class="nop" style="display:flex;gap:6px;margin-top:6px"><label class="btn">Upload portrait<input type="file" id="lpf" accept="image/*" hidden></label><button class="btn" id="lpx">Remove</button></div></div><div class="pf"><div class="g g3">${fl.map(id=>`<div><div class="fh"><input class="lbl" data-k="LL_${id}" value="${esc(lab(id))}"><button class="btn x nop" data-rm="lf:${id}">×</button></div>${I('L_'+id)}</div>`).join('')}</div><button class="btn nop" data-add="lf" style="margin-top:8px">+ Add field</button></div></div></div><div class="g g2">${bx.map(id=>`<div class="sec"><h2><input class="lbl2" data-k="LL_${id}" value="${esc(lab(id))}"><button class="btn x nop" data-rm="lb:${id}">×</button></h2><div class="b">${T('L_'+id,6)}</div></div>`).join('')}</div><button class="btn nop" data-add="lb">+ Add box</button>`;
+const pi2=document.getElementById('lpi');pi2.src=S.lorePortrait||PH;
+document.getElementById('lpf').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const c=document.createElement('canvas'),w=600,hh=800;c.width=w;c.height=hh;const x=c.getContext('2d'),sc=Math.max(w/im.width,hh/im.height);x.drawImage(im,(w-im.width*sc)/2,(hh-im.height*sc)/2,im.width*sc,im.height*sc);S.lorePortrait=c.toDataURL('image/jpeg',.85);save();pi2.src=S.lorePortrait};im.src=r.result};r.readAsDataURL(f)};
+document.getElementById('lpx').onclick=()=>{delete S.lorePortrait;save();pi2.src=PH};
+}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-add],[data-rm]');if(!b)return;
+if(b.dataset.add){const k=b.dataset.add,id='c'+Date.now().toString(36),def=k==='lb'?DB:DF;S[k]=(S[k]||def.map(x=>x[0])).concat(id);S['LL_'+id]=k==='lb'?'New box':'New field';save();renderLore();return}
+if(!b.dataset.armed){b.dataset.armed=1;b.textContent='Sure?';setTimeout(()=>{b.textContent='×';delete b.dataset.armed},3000);return}
+const [k,id]=b.dataset.rm.split(':'),def=k==='lb'?DB:DF;S[k]=(S[k]||def.map(x=>x[0])).filter(x=>x!==id);delete S['L_'+id];delete S['LL_'+id];save();renderLore()});
+const lp0=document.getElementById('p2');
+function tracksBase(){[['phys','pN'],['stun','sN'],['arm','aN']].forEach(([t,nk])=>{const n=Math.max(0,Math.min(40,num(nk)|0)),el=document.getElementById('t_'+t),sg=i=>`<button type="button" class="seg${S[t+i]?' on':''}" data-t="${t}" data-i="${i}" data-n="${n}" aria-label="${t} segment ${i+1}"></button>`;let x='';if(t==='arm'){x='<div class="armbar">'+Array.from({length:n},(_,i)=>sg(i)).join('')+'</div>'}else{for(let r=0;r*3<n;r++){x+=`<div class="mb" style="margin-left:${r*14}px"><div class="sg">`;for(let i=r*3;i<Math.min(r*3+3,n);i++)x+=sg(i);x+=`</div><small>\u2212${Math.min(r+1,4)}</small></div>`}}el.innerHTML=x})}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('.seg');if(!b)return;const t=b.dataset.t,i=+b.dataset.i,n=+b.dataset.n,last=S[t+i]&&!S[t+(i+1)];for(let j=0;j<n;j++)S[t+j]=last?j<i:j<=i;save();tracks();calc()});
+document.addEventListener('click',e=>{const c=e.target.closest&&e.target.closest('[data-clr]');if(!c)return;const t=c.dataset.clr;for(let j=0;j<40;j++)S[t+j]=false;save();tracks();calc()});
+function essFx(){const e=document.querySelector('[data-k="ess"]');if(!e)return;e.step='0.5';e.min='0';e.max='6';const v=num('ess'),m=v>=5.5?0:v>=3.5?1:v>=1.5?2:v>=.5?3:null;document.getElementById('essFx').textContent=m===null?'Essence 0 is beyond the rulebook table. Ask your GM.':m===0?'No negative effects.':'\u2212'+m+' modifier on Magic-related Tests and attempts to heal this character.'}
+const TM={bg:['Page background','--bg'],card:['Panels','--card'],hd:['Headers','--hd'],hdt:['Header text','--hdt'],ink:['Text','--ink'],ac:['Accent','--ac'],ac2:['Highlight','--ac2'],fld:['Fields','--fld'],line:['Borders','--line']};
+const PR={'Default':{},'Olive & Red':{bg:'#10170f',card:'#1a2418',hd:'#0b0f0a',hdt:'#e8e4cf',ink:'#ece8da',ac:'#5fb870',ac2:'#e0473f',fld:'#121a11',line:'#34442f'},'Crimson Fire':{bg:'#170c0a',card:'#261512',hd:'#0e0605',hdt:'#f4e4d6',ink:'#f1e3d6',ac:'#ff6a3d',ac2:'#ffc24a',fld:'#1a0e0b',line:'#4a2a22'},'Neon Sprawl':{bg:'#0b0d1a',card:'#151830',hd:'#070812',hdt:'#e6f1ff',ink:'#e6eaff',ac:'#2ee6d6',ac2:'#ff3da6',fld:'#0e1022',line:'#2c3160'}};
+const P3=document.getElementById('p3'),t3=document.getElementById('t3');
+function applyTheme(){const r=document.documentElement.style,t=S.th||{};Object.keys(TM).forEach(k=>{if(t[k])r.setProperty(TM[k][1],t[k]);else r.removeProperty(TM[k][1])});if(t.bg&&/^#[0-9a-f]{6}$/i.test(t.bg)){const h=t.bg.slice(1),L=(parseInt(h.slice(0,2),16)*.299+parseInt(h.slice(2,4),16)*.587+parseInt(h.slice(4,6),16)*.114)/255;r.setProperty('color-scheme',L<.5?'dark':'light')}else r.removeProperty('color-scheme');r.setProperty('--ca',S.pa==null?100:S.pa);const d=(S.dim==null?40:S.dim)/100;document.body.style.backgroundImage=S.bgImg?`linear-gradient(rgba(0,0,0,${d}),rgba(0,0,0,${d})),url('${S.bgImg}')`:''}
+function renderTheme(){const cs=getComputedStyle(document.documentElement),t=S.th||{};
+P3.innerHTML=`<div class='sec'><h2>Theme</h2><div class='b'><label class='l'>Presets</label><div class='pt' style='margin-bottom:10px'>${Object.keys(PR).map(n=>`<button class='btn' data-pr='${n}'>${n}</button>`).join('')}${(S.cp||[]).map((p,i)=>`<span class='pt' style='gap:2px'><button class='btn' data-cp='${i}'>${esc(p.n)}</button><button class='btn x' data-cd='${i}' title='Delete preset'>×</button></span>`).join('')}</div><label class='l'>Save current look as a preset</label><div class='pt' style='margin-bottom:10px'><input id='cpn' placeholder='Preset name' style='max-width:200px'><label style='font-size:12px'><input type='checkbox' id='cpi' style='vertical-align:middle'> include background image</label><button class='btn' id='cps'>Save preset</button></div><label class='l'>Colors</label><div class='g g6' style='margin-bottom:10px'>${Object.keys(TM).map(k=>`<div><label class='l'>${TM[k][0]}</label><input type='color' data-th='${k}' value='${t[k]||cs.getPropertyValue(TM[k][1]).trim()}'></div>`).join('')}</div><label class='l'>Page background image</label><div class='pt' style='margin-bottom:10px'><label class='btn'>Upload image<input type='file' id='bgf' accept='image/*' hidden></label><button class='btn' id='bgx'>Remove image</button></div><div class='g g2'><div><label class='l'>Image dimming</label><input type='range' min='0' max='90' value='${S.dim==null?40:S.dim}' data-sl='dim'></div><div><label class='l'>Panel opacity</label><input type='range' min='30' max='100' value='${S.pa==null?100:S.pa}' data-sl='pa'></div></div><p style='font-size:12px;color:var(--mut);margin:8px 0 0'>Tip: lower the panel opacity to let the background image show through. Saved in this browser.</p></div></div>`;
+document.getElementById('bgf').onchange=e=>{const f=e.target.files[0];if(!f)return;const r=new FileReader();r.onload=()=>{const im=new Image();im.onload=()=>{const sc=Math.min(1,1400/im.width),c=document.createElement('canvas');c.width=im.width*sc;c.height=im.height*sc;c.getContext('2d').drawImage(im,0,0,c.width,c.height);S.bgImg=c.toDataURL('image/jpeg',.65);save();applyTheme()};im.src=r.result};r.readAsDataURL(f)};
+document.getElementById('bgx').onclick=()=>{delete S.bgImg;save();applyTheme()};
+document.getElementById('cps').onclick=()=>{const n=document.getElementById('cpn').value.trim();if(!n)return;const cur={};document.querySelectorAll('[data-th]').forEach(i=>cur[i.dataset.th]=i.value);const p={n,th:cur,dim:S.dim==null?40:S.dim,pa:S.pa==null?100:S.pa};if(document.getElementById('cpi').checked&&S.bgImg)p.img=S.bgImg;S.cp=(S.cp||[]).filter(x=>x.n!==n).concat(p);save();renderTheme()}}
+document.addEventListener('input',e=>{const el=e.target,d=el.dataset||{};if(d.th){S.th=S.th||{};S.th[d.th]=el.value;save();applyTheme()}else if(d.sl){S[d.sl]=+el.value;save();applyTheme()}});
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-pr]');if(!b)return;S.th=Object.assign({},PR[b.dataset.pr]);save();applyTheme();renderTheme()});
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-cp],[data-cd]');if(!b)return;const cp=S.cp||[];if(b.dataset.cd!=null){cp.splice(+b.dataset.cd,1);S.cp=cp}else{const p=cp[+b.dataset.cp];if(!p)return;S.th=Object.assign({},p.th);S.dim=p.dim;S.pa=p.pa;if(p.img)S.bgImg=p.img}save();applyTheme();renderTheme()});
+const P4=document.getElementById('p4'),t4=document.getElementById('t4');const TB=[[t1,p1],[t2,p2],[t3,P3],[t4,P4]];TB.forEach(([b,p])=>b.onclick=()=>{TB.forEach(([bb,pp])=>{pp.hidden=pp!==p;bb.classList.toggle('on',bb===b)})});
+const COMPS=()=>['sp'].concat(S.dr||[]);
+function comp(p,kind){const sp=kind==='spirit';
+const wr=Array.from({length:3},(_,i)=>`<div class='wp'>${I(p+'w'+i+'n','Weapon')}${I(p+'w'+i+'d','6P')}${I(p+'w'+i+'c','OK')}${I(p+'w'+i+'r','-2')}${I(p+'w'+i+'f','—')}${I(p+'w'+i+'x','Notes')}</div>`).join('');
+const hd=(k,t)=>`<div class='hd'><div style='width:70px'>${I(p+k,'','number')}</div><button type='button' class='btn nop clr' data-clr='${t}'>Clear</button></div>`;
+return `<div class='amp' style='margin-bottom:10px'><div class='g g3'>${F(sp?'Spirit name':'Drone name',I(p+'n'))}${F(sp?'Spirit type':'Drone type',I(p+'t',sp?'Air, Fire, Beasts…':'Small, medium, heavy…'))}${sp?'':`<div style='display:flex;align-items:flex-end'><button class='btn nop' data-rmd='${p}'>Remove drone ×</button></div>`}</div><div class='g g6'>${['STR','AGL','WIL','LOG','CHA','EDG'].map((a,i)=>F(a,I(p+'a'+i,'','number'))).join('')}</div>${F('Skills',I(p+'sk','e.g. Astral Combat 3+W, Close Combat 3+A'))}${F(sp?'Powers / critter amps':'Amps / modifications',T(p+'am',3))}<label class='l'>Weapons</label><div class='wp'><b class='l'>Weapon</b><b class='l'>Damage</b><b class='l'>Close</b><b class='l'>Near</b><b class='l'>Far</b><b class='l'>Notes</b></div>${wr}<div class='cm'><div class='cmA'><label class='l'>Armor</label>${hd('aN',p+'arm')}<div id='t_${p}arm'></div></div><div class='cmD'></div><div class='cmP'><div><label class='l'>Physical</label>${hd('pN',p+'phys')}<div id='t_${p}phys'></div></div><div><label class='l'>Stun</label>${hd('sN',p+'stun')}<div id='t_${p}stun'></div></div></div></div><div class='mod' id='${p}mod' style='margin:6px 0'></div>${F('Notes',T(p+'no',2))}</div>`}
+function renderComp(){if(!('sppN' in S)){S.sppN=10;S.spsN=10;S.spaN=6;save()}
+document.getElementById('secSpirit').innerHTML=`<div class='sec'><h2>Spirit Summons <span>one conjured spirit at a time</span></h2><div class='b'>${comp('sp','spirit')}</div></div>`;
+document.getElementById('secDrones').innerHTML=`<div class='sec'><h2>Drones &amp; Vehicles</h2><div class='b'>${(S.dr||[]).map(p=>comp(p,'drone')).join('')||`<p style='color:var(--mut);margin:0 0 8px'>No drones yet.</p>`}<button class='btn nop' data-addd='1'>+ Add drone</button></div></div>`}
+function tracks(){const L=[['phys','pN'],['stun','sN'],['arm','aN']];COMPS().forEach(p=>L.push([p+'phys',p+'pN'],[p+'stun',p+'sN'],[p+'arm',p+'aN']));L.forEach(([t,nk])=>{const el=document.getElementById('t_'+t);if(!el)return;const n=Math.max(0,Math.min(40,num(nk)|0)),sg=i=>`<button type='button' class='seg${S[t+i]?' on':''}' data-t='${t}' data-i='${i}' data-n='${n}' aria-label='${t} segment ${i+1}'></button>`;let x='';if(t.endsWith('arm')){x=`<div class='armbar'>${Array.from({length:n},(_,i)=>sg(i)).join('')}</div>`}else{for(let r=0;r*3<n;r++){x+=`<div class='mb' style='margin-left:${r*14}px'><div class='sg'>`;for(let i=r*3;i<Math.min(r*3+3,n);i++)x+=sg(i);x+=`</div><small>\u2212${Math.min(r+1,4)}</small></div>`}}el.innerHTML=x})}
+function compCalc(){const a=document.getElementById('secSpirit'),d=document.getElementById('secDrones');if(a)a.hidden=!val('useSpirit');if(d)d.hidden=!val('useDrones');COMPS().forEach(p=>{const e=document.getElementById(p+'mod');if(e)e.textContent='Wound mod: \u2212'+(Math.min(rows(p+'phys',p+'pN'),4)+Math.min(rows(p+'stun',p+'sN'),4))})}
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-addd],[data-rmd]');if(!b)return;if(b.dataset.addd){const id='d'+Date.now().toString(36);S.dr=(S.dr||[]).concat(id);S[id+'pN']=10;S[id+'sN']=0;S[id+'aN']=6;S[id+'n']='New drone';save();renderComp();tracks();calc();return}
+if(!b.dataset.armed){b.dataset.armed=1;b.textContent='Sure?';setTimeout(()=>{b.textContent='Remove drone \u00d7';delete b.dataset.armed},3000);return}
+const id=b.dataset.rmd;S.dr=(S.dr||[]).filter(x=>x!==id);Object.keys(S).forEach(k=>{if(k.indexOf(id)===0)delete S[k]});save();renderComp();tracks();calc()});
+document.addEventListener('click',e=>{const b=e.target.closest&&e.target.closest('[data-sx]');if(!b)return;const i=b.dataset.sx,o=!S['s'+i+'o'];S['s'+i+'o']=o;save();document.getElementById('sx'+i).hidden=!o;b.textContent=o?'▾':'▸'});
+const snap=img=>{const c=Object.assign({},S);if(!img){delete c.portrait;delete c.lorePortrait;delete c.bgImg}return c};
+let pend=null;
+function renderBk(){P4.innerHTML=`<div class='sec'><h2>Backups</h2><div class='b'><label class='l'>Export</label><div class='pt' style='margin-bottom:6px'><button class='btn' id='bke'>Export sheet to JSON file</button><label style='font-size:12px'><input type='checkbox' id='bki' checked style='vertical-align:middle'> include images</label></div><label class='l' style='margin-top:12px'>Import</label><div class='pt'><label class='btn'>Choose JSON file<input type='file' id='bkf' accept='.json,application/json' hidden></label><button class='btn' id='bkc' hidden>Replace current sheet</button></div><div id='bkm' class='mod' style='min-height:18px;margin:8px 0'></div><p style='font-size:12px;color:var(--mut);margin:10px 0 0'>Export saves a .json file to your device. Import replaces everything on this sheet, so export first if you want to keep the current one. Images make files large.</p></div></div>`;
+const m=t=>{document.getElementById('bkm').textContent=t};
+document.getElementById('bke').onclick=async()=>{try{const nm=String(S.name||'character').trim().replace(/[^\w\- ]+/g,'').replace(/\s+/g,'-')||'character',fn=nm+'-sheet-backup.json',txt=JSON.stringify(snap(document.getElementById('bki').checked),null,1);let dl=null;try{if(typeof claude!=='undefined'&&typeof claude.use==='function')dl=await claude.use('downloads')}catch(x){}if(dl){await dl.save({filename:fn,data:txt})}else{const a=document.createElement('a');a.href=URL.createObjectURL(new Blob([txt],{type:'application/json'}));a.download=fn;document.body.appendChild(a);a.click();a.remove();setTimeout(()=>URL.revokeObjectURL(a.href),2000)}m('Backup file saved.')}catch(e){m(e&&e.code==='declined'?'Export cancelled.':'Could not save the file: '+((e&&(e.code||e.name))||'error')+(e&&e.message?' \u2013 '+e.message:'')+'.')}};
+document.getElementById('bkf').onchange=e=>{const f=e.target.files[0];pend=null;document.getElementById('bkc').hidden=true;if(!f)return;const r=new FileReader();r.onload=()=>{try{const o=JSON.parse(r.result);if(!o||typeof o!=='object'||Array.isArray(o))throw 0;pend=o;m('Ready to import \u201c'+f.name+'\u201d. This replaces everything on the current sheet.');document.getElementById('bkc').hidden=false}catch(x){m('That file is not a valid sheet backup.')}};r.readAsText(f)};
+document.getElementById('bkc').onclick=()=>{if(pend){S=pend;save();location.reload()}};
+}
+{const o=t4.onclick;t4.onclick=()=>{renderBk();o()}}
+applyTheme();renderTheme();renderLore();renderComp();tracks();calc();showP();
+</script></body></html>
